@@ -6,3 +6,7 @@ Factory.define :user do |u|
   u.password 'please'
 end
 
+Factory.define :project do |p|
+  p.name 'Mona Lisa'
+end
+
