@@ -3,6 +3,7 @@ HOST_OS = Config::CONFIG['host_os']
 source 'http://rubygems.org'
 gem 'rails', '3.1.1'
 gem 'sqlite3'
+gem 'rack', '1.3.3'
 group :assets do
   gem 'sass-rails',   '~> 3.1.4'
   gem 'coffee-rails', '~> 3.1.1'
