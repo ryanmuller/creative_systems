@@ -1,4 +1,4 @@
-Csl::Application.routes.draw do
+CreativeSystems::Application.routes.draw do
   #get \"users\/show\"
 
   root :to => "home#index"
