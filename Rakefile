@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Csl::Application.load_tasks
+CreativeSystems::Application.load_tasks
