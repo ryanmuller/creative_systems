@@ -3,7 +3,6 @@ HOST_OS = Config::CONFIG['host_os']
 source 'http://rubygems.org'
 gem 'rails', '3.1.1'
 gem 'sqlite3'
-gem 'rack', '1.3.3'
 group :assets do
   gem 'sass-rails',   '~> 3.1.4'
   gem 'coffee-rails', '~> 3.1.1'
@@ -42,3 +41,4 @@ gem "guard-cucumber", ">= 0.6.1", :group => :development
 gem "devise", ">= 1.4.7"
 gem "frontend-helpers"
 gem "rails-footnotes", ">= 3.7", :group => :development
+gem 'paperclip', '~> 2.4'
