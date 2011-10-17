@@ -6,6 +6,6 @@ When /^I go to the projects page$/ do
   visit projects_path
 end
 
-Then /^I should see "([^"]*)"$/ do |text|
+Then /^I should see the project "([^"]*)"$/ do |text|
   page.should have_content(text)
 end
