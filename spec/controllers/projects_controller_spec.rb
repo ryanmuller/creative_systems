@@ -3,22 +3,21 @@ require 'spec_helper'
 describe ProjectsController do
 
   before (:each) do
+    valid_attributes = { :name => "Cat Pictures" }
     @project = Factory(:project)
   end
 
   describe "GET index" do
     it "assigns all projects as @projects" do
-      project = Project.create! valid_attributes
       get :index
-      assigns(:projects).should eq([project])
+      assigns(:projects).should == [@project]
     end
   end
 
   describe "GET show" do
     it "assigns the requested project as @project" do
-      project = Project.create! valid_attributes
-      get :show, :id => project.id.to_s
-      assigns(:project).should eq(project)
+      get :show, :id => @project.id.to_s
+      assigns(:project).should == @project
     end
   end
 
