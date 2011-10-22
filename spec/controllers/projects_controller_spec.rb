@@ -2,8 +2,11 @@ require 'spec_helper'
 
 describe ProjectsController do
 
+  def valid_attributes
+    { :name => "Cat Pictures" }
+  end
+
   before (:each) do
-    valid_attributes = { :name => "Cat Pictures" }
     @project = Factory(:project)
   end
 
