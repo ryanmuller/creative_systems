@@ -4,3 +4,8 @@
   User: #{@user.name}
 %p
   Email: #{@user.email if @user.email}
+%p 
+  - if @user.cmu
+    CMU
+  - else
+    Non-CMU
