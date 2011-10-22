@@ -3,7 +3,7 @@ When /^I go to the homepage$/ do
 end
 
 Then /^I should see a link to "([^"]*)"$/ do |text|
-  within("a") do
+  within('#navigation') do
     page.should have_content(text)
   end
 end

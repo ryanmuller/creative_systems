@@ -21,4 +21,18 @@ describe UsersController do
     
   end
 
+  describe "GET 'index'" do 
+    
+    it "should be successful" do
+      get :index
+      response.should be_success
+    end
+    
+    it "should find all the users" do
+      get :index
+      assigns(:users).should == [@user]
+    end
+
+  end
+
 end
