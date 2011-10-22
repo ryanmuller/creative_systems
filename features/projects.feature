@@ -5,7 +5,8 @@ Feature: List projects
 
     Scenario: Viewing projects
       Given a project exists with a name of "Cat Pictures"
+      And a project exists with a name of "Grooming station"
       When I go to the projects page
-      Then I should see "Projects"
-      And I should see "Cat Pictures"
+      Then I should see the project "Cat Pictures"
+      And I should see the project "Grooming station"
 

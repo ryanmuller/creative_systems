@@ -13,6 +13,10 @@
         %nav
           %ul.hmenu
             = render 'shared/navigation'
+          %p Creative Systems Laboratory
+          %ul#navigation.tabs
+            %li= link_to "Projects", projects_path
+            %li= link_to "People", users_path
         - flash.each do |name, msg|
           = content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String)
       #main{:role => "main"}
