@@ -4,12 +4,11 @@ Feature: Edit User
   so I can change my username
 
     Scenario: I sign in and edit my account
-      Given I am a user named "foo" with an email "user@test.com" and password "please"
+      Given the following user exists:
+        | email         | name              | password |
+        | user@test.com | "Testy McUserton" | please   |
       When I sign in as "user@test.com/please"
-      Then I should be signed in
-      When I follow "Edit account"
-      And I fill in "Name" with "baz"
-      And I fill in "Current password" with "please"
-      And I press "Update"
-      And I go to the homepage
+      And I go to edit my account
+      And I change my name to "baz" 
+      And I go to my profile
       Then I should see "User: baz"

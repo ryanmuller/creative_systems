@@ -1,12 +1,19 @@
 require 'factory_girl'
 
-Factory.define :user do |u|
-  u.name 'Test User'
-  u.email 'user@test.com'
-  u.password 'please'
-end
+FactoryGirl.define do
+  sequence :email do |n|
+    'user#{n}@test.com'
+  end
 
-Factory.define :project do |p|
-  p.name 'Mona Lisa'
+  factory :user do |u|
+    u.name 'Test User'
+    u.email { Factory.next(:email) }
+    u.password 'please'
+    u.password_confirmation 'please'
+  end
+
+  factory :project do |p|
+    p.name 'Mona Lisa'
+  end
 end
 
