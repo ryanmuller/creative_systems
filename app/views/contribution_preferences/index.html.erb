@@ -1,5 +1,32 @@
-Hi there!
+<h3>Contribution preferences</h3>
+<ul>
+  <% @cps.each do |cp| %>
+    <li> <%= cp.name %></li>
+  <% end %>
+</ul>
 
-<% @cps.each do |cp| %>
-<%= cp.name %>
-<% end %>
+<h3>Add a contribution preference</h3>
+
+<%= form_for @cp do |f| %>
+
+  <% if @cp.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@cp.errors.count, "error") %> prohibited this project from being saved:</h2>
+      <ul>
+        <% @cp.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <p><%= f.label :name %><br />
+  <%= f.text_field :name %>
+  </p>
+
+  <div class="actions">
+    <%= f.submit 'Add' %>
+  </div>
+ 
+ <% end %>
