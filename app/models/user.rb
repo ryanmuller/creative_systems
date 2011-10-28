@@ -7,4 +7,8 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :name, :email, :cmu, :password, :password_confirmation, :remember_me, :avatar
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }
+
+  has_many :contribution_preferences, :through => :contribution_selection
+  has_many :contribution_selections
+  accepts_nested_attributes_for :contribution_selections
 end

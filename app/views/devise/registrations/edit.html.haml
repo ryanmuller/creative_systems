@@ -12,8 +12,18 @@
     = f.email_field :email
   %p 
     = f.label :cmu, "CMU?"
-    %br/ 
     = f.check_box :cmu
+  %p 
+    - ContributionPreference.all.each do |cp|
+      %p
+        = cp.name
+        = f.fields_for :contribution_selections do |cp_form| 
+          hi
+          = cp_form.hidden_field :contribution_preference_id, cp.id
+          = cp_form.text_field :preference
+          = cp_form.label :preference
+          %br/
+          = cp_form.select :preference, [['yes', 'yes'], ['sure', 'sure'], ['no', 'no']]
   %p
     = f.label :password
     %i (leave blank if you don't want to change it)
@@ -28,6 +38,7 @@
     %i (we need your current password to confirm your changes)
     %br/
     = f.password_field :current_password
+
   %p= f.file_field :avatar
   %p= f.submit "Update"
 %h3 Cancel my account

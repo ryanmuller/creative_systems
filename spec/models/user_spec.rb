@@ -100,4 +100,20 @@ describe User do
 
   end
 
+  describe "contribution preferences" do
+
+    before(:each) do 
+      @user = User.create!(@attr)
+    end
+
+    it "should be able to access contribution preferences" do
+      @user.should respond_to(:contribution_preferences)
+    end
+
+    it "should be able to access contribution selections" do
+      @user.should respond_to(:contribution_selections)
+    end
+  end
+
+
 end
