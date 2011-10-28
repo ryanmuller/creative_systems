@@ -2,13 +2,24 @@ Feature: Edit User
   As a registered user of the website
   I want to edit my user profile
   so I can change my username
-
-    Scenario: I sign in and edit my account
+     
+    Background:
       Given the following user exists:
         | email         | name              | password |
         | user@test.com | "Testy McUserton" | please   |
       When I sign in as "user@test.com/please"
       And I go to edit my account
-      And I change my name to "baz" 
+
+
+    Scenario: I change my name
+      When I change my name to "baz" 
       And I go to my profile
       Then I should see "User: baz"
+
+    Scenario: I change my contribution preference
+      Given the contribution preference "User research"
+      When I select "Yes" for the contribution preference "User research"
+      And I go to my profile
+      Then I should see "User research: yes"
+
+

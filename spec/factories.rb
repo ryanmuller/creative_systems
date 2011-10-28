@@ -15,5 +15,9 @@ FactoryGirl.define do
   factory :project do |p|
     p.name 'Mona Lisa'
   end
+
+  factory :contribution_preference do |cp|
+    cp.name 'User research'
+  end
 end
 
