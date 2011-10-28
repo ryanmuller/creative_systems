@@ -7,6 +7,7 @@ CreativeSystems::Application.routes.draw do
   resources :users, :only => [:show, :index]
 
   resources :projects
+  resources :contribution_preferences
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
