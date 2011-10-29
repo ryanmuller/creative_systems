@@ -13,17 +13,16 @@
   %p 
     = f.label :cmu, "CMU?"
     = f.check_box :cmu
-  %p 
-    - ContributionPreference.all.each do |cp|
-      %p
-        = cp.name
-        = f.fields_for :contribution_selections do |cp_form| 
-          hi
-          = cp_form.hidden_field :contribution_preference_id, cp.id
-          = cp_form.text_field :preference
-          = cp_form.label :preference
-          %br/
-          = cp_form.select :preference, [['yes', 'yes'], ['sure', 'sure'], ['no', 'no']]
+
+  - ContributionPreference.all.each do |cp|
+    - resource.contribution_selections.build({ :contribution_preference_id => cp.id })
+  %p
+    =# cp.name
+    = f.fields_for :contribution_selections do |cp_form| 
+      = ContributionPreference.find(cp_form.object.contribution_preference_id).name
+      =# cp_form.hidden_field :contribution_preference_id, { :value => cp.id }
+      = cp_form.label :preference
+      = cp_form.select :preference, [['yes', 'yes'], ['sure', 'sure'], ['no', 'no']]
   %p
     = f.label :password
     %i (leave blank if you don't want to change it)
