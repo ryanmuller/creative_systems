@@ -100,4 +100,20 @@ describe User do
 
   end
 
+
+  describe "memberships" do
+
+    before(:each) do
+      @user = Factory.create(:user)
+    end
+
+    it "should respond to memberships" do
+      @user.should respond_to(:memberships)
+    end
+
+    it "should respond to projects" do
+      @user.should respond_to(:projects)
+    end
+  end
+
 end

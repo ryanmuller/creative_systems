@@ -23,4 +23,14 @@ describe Project do
     project_with_duplicate_name = Project.new(@attr)
     project_with_duplicate_name.should_not be_valid
   end
+
+  it "should respond to memberships" do
+    @project = Factory.create(:project)
+    @project.should respond_to(:memberships)
+  end
+
+  it "should respond to users" do 
+    @project = Factory.create(:project)
+    @project.should respond_to(:users)
+  end
 end

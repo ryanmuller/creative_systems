@@ -6,7 +6,11 @@ CreativeSystems::Application.routes.draw do
   devise_for :users
   resources :users, :only => [:show, :index]
 
-  resources :projects
+  resources :projects do
+    member do
+      resources :memberships, :only => [:create] 
+    end
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

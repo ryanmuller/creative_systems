@@ -15,5 +15,10 @@ FactoryGirl.define do
   factory :project do |p|
     p.name 'Mona Lisa'
   end
+
+  factory :membership do |m|
+    m.association :project
+    m.association :user
+  end
 end
 
