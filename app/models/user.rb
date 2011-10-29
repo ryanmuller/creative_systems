@@ -10,4 +10,8 @@ class User < ActiveRecord::Base
      
   has_many :memberships
   has_many :projects, :through => :memberships
+
+  def join!(project)
+    memberships.create!(:project_id => project.id)
+  end
 end

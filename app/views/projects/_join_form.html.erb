@@ -1,0 +1,6 @@
+<div id="join_form">
+  <%= form_for [@project, current_user.memberships.build(:project_id => @project.id)] do |f| %>
+    <%= f.hidden_field :project_id %>
+    <p class="actions"><%= f.submit "Join" %></p>
+  <% end %>
+</div>

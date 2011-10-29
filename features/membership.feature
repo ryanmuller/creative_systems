@@ -10,3 +10,4 @@ Feature: Project memberships
     And I click "Join"
     Then I should see myself on the list of members
 
+

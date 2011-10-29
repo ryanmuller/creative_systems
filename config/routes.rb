@@ -7,9 +7,7 @@ CreativeSystems::Application.routes.draw do
   resources :users, :only => [:show, :index]
 
   resources :projects do
-    member do
-      resources :memberships, :only => [:create] 
-    end
+    resources :memberships, :only => [:create] 
   end
 
   # The priority is based upon order of creation:
