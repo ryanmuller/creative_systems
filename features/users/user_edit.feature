@@ -17,6 +17,7 @@ Feature: Edit User
 
     Scenario: I change my contribution preference
       Given the contribution preference "User research"
+      And I go to edit my account
       When I select "no" for the contribution preference "User research"
       And I go to my profile
       Then I should see "User research: no"
