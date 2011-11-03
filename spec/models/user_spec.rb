@@ -103,6 +103,7 @@ describe User do
   describe "contribution preferences" do
 
     before(:each) do 
+      @cp = ContributionPreference.create!({ :name => "Cat napping" })
       @user = User.create!(@attr)
     end
 
@@ -113,7 +114,12 @@ describe User do
     it "should be able to access contribution selections" do
       @user.should respond_to(:contribution_selections)
     end
-  end
 
+    it "should create default contribution selections" do
+      @user.contribution_selections[0].contribution_preference.should == @cp
+    end
+      
+
+  end
 
 end

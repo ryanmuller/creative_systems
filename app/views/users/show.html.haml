@@ -9,3 +9,8 @@
     CMU
   - else
     Non-CMU
+%ul
+  - @user.contribution_selections.each do |cs|
+    %li
+      #{cs.contribution_preference.name}: #{cs.preference}
+

@@ -16,5 +16,12 @@ describe ContributionPreference do
     no_name_cp = ContributionPreference.new(@attr.merge(:name => ""))
     no_name_cp.should_not be_valid
   end
+
+  it "should set default contribution selections for all users when created" do
+    u = Factory(:user)
+    c = ContributionPreference.create!(@attr)
+    u.contribution_selections[0].contribution_preference.should == c
+  end
+
 end
 

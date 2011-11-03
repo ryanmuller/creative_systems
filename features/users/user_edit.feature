@@ -17,8 +17,8 @@ Feature: Edit User
 
     Scenario: I change my contribution preference
       Given the contribution preference "User research"
-      When I select "Yes" for the contribution preference "User research"
+      When I select "no" for the contribution preference "User research"
       And I go to my profile
-      Then I should see "User research: yes"
+      Then I should see "User research: no"
 
 

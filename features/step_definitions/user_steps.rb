@@ -118,7 +118,7 @@ When /^I go to the list of users$/ do
 end
 
 When /^I select "(.*)" for the contribution preference "(.*)"$/ do |pref, name|
-  select(pref, {:from => name})
+  select(pref, {:from => "Preference"})
 end
 
 Given /^the contribution preference "(.*)"$/ do |name|
