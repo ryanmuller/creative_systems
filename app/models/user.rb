@@ -10,6 +10,9 @@ class User < ActiveRecord::Base
 
   has_many :contribution_preferences, :through => :contribution_selection
   has_many :contribution_selections
+  has_many :memberships
+  has_many :projects, :through => :memberships
+
   accepts_nested_attributes_for :contribution_selections
 
   after_create :create_default_selections
@@ -19,5 +22,17 @@ class User < ActiveRecord::Base
       c = self.contribution_selections.new({ :preference => "no" })
       cp.contribution_selections << c
     end
+  end
+
+  def join!(project)
+    memberships.create!(:project_id => project.id)
+  end
+
+  def leave!(project)
+    memberships.find_by_project_id(project).destroy
+  end
+
+  def member?(project)
+    memberships.find_by_project_id(project)
   end
 end

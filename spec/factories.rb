@@ -19,5 +19,10 @@ FactoryGirl.define do
   factory :contribution_preference do |cp|
     cp.name 'User research'
   end
+
+  factory :membership do |m|
+    m.association :project
+    m.association :user
+  end
 end
 

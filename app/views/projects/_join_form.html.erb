@@ -1,0 +1,16 @@
+<% if not current_user.member?(@project) %>
+  <div id="join_form">
+
+    <%= form_for [@project, current_user.memberships.build(:project_id => @project.id)] do |f| %>
+      <%= f.hidden_field :project_id %>
+      <p class="actions"><%= f.submit "Join" %></p>
+    <% end %>
+  </div>
+<% else %>
+
+  <div id="leave_form">
+    <%= form_for [@project, current_user.memberships.find_by_project_id(@project.id)], :html => { :method => :delete } do |f| %>
+      <p class="actions"> <%= f.submit "Leave" %></p>
+    <% end %>
+  </div>
+<% end %>
