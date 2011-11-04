@@ -14,4 +14,13 @@ class User < ActiveRecord::Base
   def join!(project)
     memberships.create!(:project_id => project.id)
   end
+
+
+  def leave!(project)
+    memberships.find_by_project_id(project).destroy
+  end
+
+  def member?(project)
+    memberships.find_by_project_id(project)
+  end
 end

@@ -29,4 +29,5 @@ describe Membership do
      @membership.save
      @membership.user.should == @user
    end
+
 end
