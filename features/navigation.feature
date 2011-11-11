@@ -3,6 +3,10 @@ Feature: Navigation
   A user
   Should be able to navigate to different sections
 
+    Scenario: User wants to see the welcome page
+      When I go to the projects page
+      Then I should see a link to "Home"
+
     Scenario: User wants to see a list of People
       When I go to the homepage
       Then I should see a link to "People"

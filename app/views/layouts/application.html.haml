@@ -15,6 +15,7 @@
             = render 'shared/navigation'
           %p Creative Systems Laboratory
           %ul#navigation.tabs
+            %li= link_to "Home", root_path
             %li= link_to "Projects", projects_path
             %li= link_to "People", users_path
         - flash.each do |name, msg|
