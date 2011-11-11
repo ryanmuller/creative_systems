@@ -11,6 +11,8 @@ CreativeSystems::Application.routes.draw do
     resources :memberships, :only => [:create, :destroy]
   end
 
+  resources :comments
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
