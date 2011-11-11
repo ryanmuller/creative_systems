@@ -9,10 +9,6 @@ Given /^I am a member of the "(.*)" project$/ do |project|
   click_button "Join"
 end
 
-When /^I go to the "(.*)" project page$/ do |project|
-  visit projects_path
-  click_link project
-end
 
 When /^I click "Join"$/ do
   click_button "Join"

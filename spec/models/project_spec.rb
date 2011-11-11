@@ -33,4 +33,9 @@ describe Project do
     @project = Factory.create(:project)
     @project.should respond_to(:users)
   end
+
+  it "should respond to comments" do
+    @project = Factory.create(:project)
+    @project.should respond_to(:comments)
+  end
 end

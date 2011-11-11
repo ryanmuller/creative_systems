@@ -24,5 +24,11 @@ FactoryGirl.define do
     m.association :project
     m.association :user
   end
+
+  factory :comment do |c|
+    c.content 'I have something important to say'
+    c.association :user
+    c.association :commentable, :factory => :project
+  end
 end
 
