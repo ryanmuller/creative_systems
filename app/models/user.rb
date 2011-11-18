@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
   has_many :contribution_selections
   has_many :memberships
   has_many :projects, :through => :memberships
+  has_many :comments
 
   accepts_nested_attributes_for :contribution_selections
 

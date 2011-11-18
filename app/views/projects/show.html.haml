@@ -14,6 +14,19 @@
 %p
   = render 'join_form' if user_signed_in?
  
+- if user_signed_in? and current_user.member?(@project)
+  %h3
+    Comments
+  %ul#comments
+    - @project.comments.each do |comment|
+      %li
+        %strong
+          #{comment.user.name}:
+        = comment.content
+
+  %p
+    = render :partial => 'comments/form', :locals => { :commentable => @project }
+
 
 = link_to 'Edit', edit_project_path(@project)
 \|

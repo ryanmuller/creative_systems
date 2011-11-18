@@ -1,0 +1,7 @@
+= form_for [commentable, Comment.new] do |f|
+  %p
+    = f.label :content, "Leave a comment"
+    = f.text_area :content, :rows => 3
+  %p.actions
+    = f.submit "Submit"
+
